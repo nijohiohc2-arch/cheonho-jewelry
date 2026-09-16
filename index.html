@@ -3,10 +3,234 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5f1ea">
 <title>천호황금시대 — Jewelry</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;800&family=Playfair+Display:wght@500;600&display=swap');
+:root{--bg:#f7f3ed;--ink:#202020;--muted:#777;--line:#ddd6cc;--gold:#9d7a3d;--card:#fffdf9}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",sans-serif} button,a.btnlike{font:inherit;cursor:pointer}
+.top{position:sticky;top:0;z-index:20;min-height:62px;background:rgba(250,248,244,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,0,0,.06);display:flex;align-items:center;justify-content:space-between;padding:8px 14px}
+.logo{font-family:"Playfair Display",serif;letter-spacing:.4px;font-size:13px;line-height:1.05} .logo small{display:block;font:7px "Noto Sans KR";letter-spacing:1.6px;margin-top:4px;color:#777}
+.hero{position:relative;height:560px;overflow:hidden;background:#222}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:55% center;filter:saturate(.82)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(247,243,237,.86) 0%,rgba(247,243,237,.28) 48%,rgba(0,0,0,.18) 100%)}
+.hero-copy{position:absolute;z-index:2;left:25px;top:88px;max-width:270px}
+.eyebrow{font-size:10px;letter-spacing:2.5px;color:#5f5a54;margin-bottom:12px}
+.hero h1{font-family:"Playfair Display","Noto Sans KR",serif;font-weight:500;font-size:32px;line-height:1.22;margin:0 0 12px;letter-spacing:-.8px}
+.cta{background:#242424;color:#fff;border:0;padding:13px 20px;font-size:11px;letter-spacing:.5px}
+.gold-box{margin:-1px 14px 0;position:relative;z-index:3;background:rgba(255,253,249,.97);border:1px solid var(--line);padding:17px 15px;box-shadow:0 10px 30px rgba(60,40,20,.08)}
+.gold-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.gold-title{font-family:"Playfair Display",serif;font-size:17px} .gold-date{font-size:9px;color:#999}
+.rates{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.rate{border-left:1px solid var(--line);padding-left:9px} .rate:first-child{border:0}
+.rate span{display:block;font-size:9px;color:#777;margin-bottom:4px} .rate strong{font-size:12px} .chg{font-size:8px;margin-left:2px} .chg.up{color:#9d6c3d} .chg.down{color:#6b7c8a}
+.gold-actions{display:flex;gap:7px;margin-top:14px} .outline{flex:1;background:transparent;border:1px solid #cfc7bc;padding:10px;font-size:10px}
+.live-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#c29a4a;margin-right:4px;animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);padding:22px 10px;border-bottom:1px solid var(--line);gap:6px}
+.trust div{text-align:center}
+.trust b{display:block;font-size:14px;font-weight:700;margin-bottom:6px;line-height:1.2;letter-spacing:-.4px;white-space:nowrap}
+.trust span{display:block;font-size:10px;color:#777;line-height:1.4;white-space:nowrap}
+.section{padding:46px 18px 96px} .section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:20px}
+.kicker{font-size:9px;letter-spacing:3px;color:#777} .section h2{font-family:"Playfair Display","Noto Sans KR",serif;font-weight:500;font-size:27px;margin:7px 0 0;letter-spacing:-.5px}
+.more{font-size:9px;color:#555;background:none;border:0;padding:0;text-decoration:underline;text-underline-offset:3px}
+.products{display:grid;grid-template-columns:1fr 1fr;gap:24px 10px}
+.product-img{position:relative;aspect-ratio:1/1;overflow:hidden;background:#e8e0d4}
+.product-img img{width:100%;height:100%;object-fit:cover;object-position:center}
+.heart{position:absolute;right:8px;top:7px;border:0;background:rgba(255,255,255,.7);width:27px;height:27px;border-radius:50%;font-size:17px}
+.badge{position:absolute;left:8px;bottom:8px;background:#fffdf9;padding:4px 6px;font-size:7px;letter-spacing:1px}
+.pmeta{font-size:8px;color:#8a8278;margin-top:10px}
+.product h3{font-size:11px;font-weight:500;margin:6px 0 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.price{font-size:11px;font-weight:600;margin-bottom:10px}
+.buy{width:100%;background:#252525;color:#fff;border:0;padding:10px;font-size:9px}
+.factory{position:relative;min-height:340px;overflow:hidden;margin:0}
+.factory-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(7px) saturate(.7) brightness(.55);transform:scale(1.08)}
+.factory:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,12,.28),rgba(20,16,12,.62))}
+.factory-copy{position:relative;z-index:2;padding:56px 28px;text-align:center;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:340px}
+.factory-copy .kicker{color:#ead9b8}
+.factory-copy h2{font-family:"Playfair Display","Noto Sans KR",serif;font-size:28px;font-weight:500;line-height:1.3;margin:8px 0 12px;color:#fff}
+.factory-copy p{font-size:12px;line-height:1.8;color:#eee;margin:0 0 18px;max-width:280px}
+.small-btn{border:1px solid #fff;background:transparent;color:#fff;padding:9px 14px;font-size:10px}
+.sell{margin:18px;padding:30px 20px;background:#e6ddcf;text-align:center}
+.sell h2{font-family:"Playfair Display","Noto Sans KR",serif;font-weight:500;font-size:25px;margin:5px 0 8px}
+.sell p{font-size:9px;line-height:1.7;color:#6d675e;margin-bottom:17px}
+.custom{margin:18px;background:#1a1612;color:white;padding:42px 22px 36px;min-height:220px;position:relative;overflow:hidden}
+.custom-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;filter:saturate(.85) brightness(.72)}
+.custom:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,14,10,.72) 0%,rgba(18,14,10,.38) 55%,rgba(18,14,10,.18) 100%)}
+.custom-content{position:relative;z-index:1}
+.custom .kicker{color:#e8d3a4}
+.custom h2{font-family:"Playfair Display","Noto Sans KR",serif;font-size:26px;font-weight:500;margin:8px 0 10px;color:#fff}
+.custom p{font-size:12px;line-height:1.75;color:#f0e6d4;margin:0 0 18px;max-width:260px;text-shadow:0 1px 8px rgba(0,0,0,.35)}
+.custom .cta{background:#17130f;border:1px solid #e0c48a;color:#f3dfb0}
+.place{margin:18px;background:#fffdf9;border:1px solid var(--line);overflow:hidden}
+.place-copy{padding:22px 18px 14px}
+.place-copy h2{font-family:"Playfair Display","Noto Sans KR",serif;font-size:24px;font-weight:500;margin:6px 0 8px}
+.place-copy p{font-size:12px;line-height:1.7;color:#666;margin:0 0 12px}
+.place-actions{display:flex;gap:8px;flex-wrap:wrap}
+.place-actions a,.place-actions button{flex:1;min-width:120px;text-align:center;text-decoration:none;color:#17130f;border:1px solid #cfc7bc;padding:11px 10px;font-size:11px;background:#fff}
+.place-actions a.primary{background:#17130f;color:#f3dfb0;border-color:#17130f}
+.bottom{position:sticky;bottom:0;z-index:30;background:rgba(255,253,249,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:8px 2px calc(10px + env(safe-area-inset-bottom))}
+.bottom button,.bottom a{border:0;background:none;font-size:8px;letter-spacing:-.2px;color:#555;text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:4px;padding:4px 0}
+.bottom svg{width:22px;height:22px;stroke:#222;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+footer{background:#17130f;color:#e8c98a;padding:35px 20px 80px}
+footer .logo{font-size:18px;color:#f3dfb0} footer .logo small{color:#c4a56a}
+footer p{font-size:11px;color:#e0c48a;line-height:1.45;margin:0}
+footer p + p{margin-top:4px}
+.footer-links{display:flex;gap:14px;font-size:10px;color:#d4b06a;margin-top:20px}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.48);z-index:50;align-items:flex-end}
+.modal.on{display:flex}
+.sheet{width:100%;background:#fffdf9;border-radius:18px 18px 0 0;padding:22px 18px 28px;max-height:88vh;overflow:auto}
+.sheet h3{margin:0 0 7px;font-size:17px} .sheet p{font-size:10px;color:#777}
+.sheet .full{width:100%;padding:13px;background:#242424;color:#fff;border:0;font-size:11px}
+@media(min-width:700px){body{max-width:430px;margin:auto;box-shadow:0 0 60px rgba(0,0,0,.12)}.bottom{max-width:430px;left:50%;transform:translateX(-50%)}}
+.header-consult{margin-left:auto;border:1px solid rgba(183,145,76,.62);background:#17130f;color:#f3dfb0;border-radius:999px;padding:8px 14px;font-size:11px;font-weight:800;cursor:pointer;white-space:nowrap}
+.hero-sub{color:#3a342c;font-size:13px;line-height:1.7;font-weight:500;margin:0 0 16px}
+.hero-ops{margin:12px 0 0;max-width:230px;font-size:11px;line-height:1.65;font-weight:600;color:#2c2823;background:rgba(255,253,249,.78);border:1px solid rgba(157,122,61,.28);padding:10px 12px}
+.consult-modal-backdrop{position:fixed;inset:0;z-index:99999;display:none;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.62)}
+.consult-modal-backdrop.open{display:flex}
+.consult-modal{width:min(430px,100%);box-sizing:border-box;max-height:92vh;overflow:auto;background:#fff;color:#17130f;border-radius:24px 24px 0 0;padding:22px 20px 28px}
+.consult-modal h3{margin:0 0 6px;font-size:21px}
+.consult-modal .desc{margin:0 0 18px;color:#777;font-size:13px}
+.consult-modal label.field-label{display:block;margin:13px 0 7px;color:#333;font-size:12px;font-weight:800}
+.consult-modal input[type="text"], .consult-modal input[type="tel"], .consult-modal textarea{width:100%;border:1px solid #ddd;border-radius:10px;background:#fafafa;padding:12px;font-size:14px;outline:none}
+.consult-modal textarea{min-height:105px;resize:vertical}
+.consult-types{display:grid;gap:7px}
+.consult-type{display:block;padding:11px 12px;border:1px solid #e0e0e0;border-radius:10px;font-size:13px;cursor:pointer}
+.consult-submit{width:100%;margin-top:18px;border:0;border-radius:12px;padding:14px;background:#17130f;color:#f3dfb0;font-size:14px;font-weight:800;cursor:pointer}
+.consult-close{float:right;width:32px;height:32px;border:0;border-radius:50%;background:#f3f3f3;font-size:19px;cursor:pointer}
+</style>
 </head>
 <body>
-<p>페이지 올리는 중입니다. 잠시 후 다시 열어주세요.</p>
-<script>location.replace('./hwanggeum-sidae.html')</script>
+<header class="top">
+  <div class="logo">천호황금시대쥬얼리<small>JEWELRY FOR YOUR EVERYDAY</small></div>
+  <button class="header-consult" type="button" onclick="openConsult()">상담</button>
+</header>
+<section class="hero">
+  <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1400&q=80" alt="">
+  <div class="hero-copy">
+    <div class="eyebrow">천호황금시대쥬얼리</div>
+    <h1>직접 만들고,<br>정직하게<br>제안합니다.</h1>
+    <p class="hero-sub">매일의 순간을 위한 주얼리.</p>
+    <button class="cta" onclick="scrollToId('shop')">JEWELRY SHOP  →</button>
+    <p class="hero-ops">매장과 공장을 직접 운영합니다.<br>디자인부터 제작까지 한곳에서.</p>
+  </div>
+</section>
+<section class="gold-box">
+  <div class="gold-head">
+    <div class="gold-title">오늘의 금 시세</div>
+    <div class="gold-date"><span class="live-dot"></span><span id="goldUpdated">시세 불러오는 중</span></div>
+  </div>
+  <div class="rates">
+    <div class="rate"><span>순금(24K)</span><strong id="p24">—</strong><i class="chg" id="c24"></i></div>
+    <div class="rate"><span>18K</span><strong id="p18">—</strong><i class="chg" id="c18"></i></div>
+    <div class="rate"><span>14K</span><strong id="p14">—</strong><i class="chg" id="c14"></i></div>
+  </div>
+  <div class="gold-actions">
+    <button class="outline" onclick="openCalc()">내 금 계산하기</button>
+    <button class="outline" onclick="loadGoldRates(true)">시세 새로고침</button>
+  </div>
+</section>
+<section class="trust">
+  <div><b>14K / 18K / 순금</b><span>정품 골드만 사용</span></div>
+  <div><b>직접 제작</b><span>공장에서 직접 제작</span></div>
+  <div><b>솔직한 상담</b><span>주문 전 상담 진행</span></div>
+</section>
+<section class="section" id="shop">
+  <div class="section-head">
+    <div><div class="kicker">NEW COLLECTION</div><h2>지금 가장 사랑받는 주얼리</h2></div>
+    <button class="more" type="button" onclick="showAllProducts()">전체보기 →</button>
+  </div>
+  <div class="products" id="productGrid"></div>
+</section>
+<section class="factory" id="factory">
+  <img class="factory-bg" src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=1400&q=80" alt="">
+  <div class="factory-copy">
+    <div class="kicker">OUR FACTORY</div>
+    <h2>공장 직접 제작으로<br>더 특별하게</h2>
+    <p>디자인부터 제작까지 직접 관리합니다.</p>
+    <button class="small-btn" onclick="openConsult('공장 제작 및 OEM')">제작 상담하기 →</button>
+  </div>
+</section>
+<section class="sell">
+  <div class="kicker">SELL YOUR GOLD</div>
+  <h2>가지고 있는 금,<br>지금 가치를 확인하세요</h2>
+  <p>순도와 중량으로 예상 매입가를 계산합니다.</p>
+  <button class="cta" onclick="openCalc()">예상 매입가 계산 →</button>
+</section>
+<section class="custom">
+  <img class="custom-bg" src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1400&q=80" alt="">
+  <div class="custom-content">
+    <div class="kicker">CUSTOM JEWELRY</div>
+    <h2>나만의 특별한 주얼리</h2>
+    <p>사진 하나만 보내주세요.</p>
+    <button class="cta" onclick="openConsult('나만의 주얼리 맞춤 제작')">맞춤 제작 상담 →</button>
+  </div>
+</section>
+<section class="place" id="place">
+  <div class="place-copy">
+    <div class="kicker">FIND US</div>
+    <h2>천호황금시대 찾아오기</h2>
+    <p>매장과 공장을 직접 운영합니다.</p>
+    <div class="place-actions">
+      <a class="primary" href="nmap://place?id=1912557373" onclick="return openNaverMapApp(event)">네이버 지도 열기</a>
+      <a href="tel:0507-1345-3180">전화하기</a>
+      <button type="button" onclick="openConsult('방문 예약')">방문 예약</button>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="logo">천호황금시대쥬얼리<small>JEWELRY FOR YOUR EVERYDAY</small></div>
+  <p>매장과 공장을 직접 운영합니다.</p>
+  <p>직접 만들고, 오래 남는 주얼리를 제안합니다.</p>
+</footer>
+<nav class="bottom">
+  <button type="button" onclick="scrollToId('shop')"><svg viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z"/></svg>SHOP</button>
+  <button type="button" onclick="openCalc()"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>금 계산</button>
+  <button type="button" onclick="openConsult('나만의 주얼리 맞춤 제작')"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M6.5 19c.8-3 3-4.5 5.5-4.5S16.7 16 17.5 19"/></svg>맞춤제작</button>
+  <a href="nmap://place?id=1912557373" onclick="return openNaverMapApp(event)"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.2"/></svg>오시는길</a>
+  <a href="tel:0507-1345-3180"><svg viewBox="0 0 24 24"><path d="M7 3.8h3.2l1 4.2-2 1.2a12 12 0 0 0 5.6 5.6l1.2-2 4.2 1V17c0 1.2-1 2.2-2.2 2.2C9.8 19.2 4.8 14.2 4.8 6A2.2 2.2 0 0 1 7 3.8z"/></svg>전화</a>
+</nav>
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()"><div class="sheet" id="sheet"></div></div>
+<div class="consult-modal-backdrop" id="consultModal" onclick="if(event.target===this) closeConsult()">
+  <div class="consult-modal">
+    <button class="consult-close" type="button" onclick="closeConsult()">×</button>
+    <h3>브랜드 디자인 제작 상담</h3>
+    <p class="desc">아이디어부터 제작까지 함께 상담합니다.</p>
+    <label class="field-label" for="consultName">성함</label>
+    <input id="consultName" type="text" placeholder="성함을 입력해주세요">
+    <label class="field-label" for="consultPhone">연락처</label>
+    <input id="consultPhone" type="tel" placeholder="010-0000-0000">
+    <label class="field-label">상담 유형</label>
+    <div class="consult-types">
+      <label class="consult-type"><input type="radio" name="consultType" value="나만의 주얼리 맞춤 제작" checked> 나만의 주얼리 맞춤 제작</label>
+      <label class="consult-type"><input type="radio" name="consultType" value="브랜드 주얼리 디자인 제작"> 브랜드 주얼리 디자인 제작</label>
+      <label class="consult-type"><input type="radio" name="consultType" value="공장 제작 및 OEM"> 공장 제작 및 OEM 상담</label>
+      <label class="consult-type"><input type="radio" name="consultType" value="제품 구매 상담"> 제품 구매 상담</label>
+      <label class="consult-type"><input type="radio" name="consultType" value="방문 예약"> 방문 예약</label>
+    </div>
+    <label class="field-label" for="consultMessage">상담 내용</label>
+    <textarea id="consultMessage" placeholder="원하시는 디자인, 수량, 예산을 적어주세요."></textarea>
+    <button class="consult-submit" type="button" onclick="submitConsult()">상담 신청하기</button>
+  </div>
+</div>
+<script>
+const PRODUCTS=[{name:'14K 데일리 체인 목걸이',meta:'14K · 목걸이',price:'289,000원',badge:'BEST',img:'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80'},{name:'14K 미니 후프 이어링',meta:'14K · 귀걸이',price:'168,000원',badge:'NEW',img:'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80'},{name:'14K 담수진주 팔찌',meta:'14K · 팔찌',price:'248,000원',badge:'',img:'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=800&q=80'},{name:'14K 심플 밴드링',meta:'14K · 반지',price:'198,000원',badge:'',img:'https://images.pexels.com/photos/265906/pexels-photo-265906.jpeg?auto=compress&cs=tinysrgb&w=800'},{name:'14K 레이어드 목걸이',meta:'14K · 목걸이',price:'268,000원',badge:'NEW',img:'https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=800&q=80'},{name:'14K 볼 체인 팔찌',meta:'14K · 팔찌',price:'228,000원',badge:'',img:'https://images.pexels.com/photos/248077/pexels-photo-248077.jpeg?auto=compress&cs=tinysrgb&w=800'},{name:'24K 기본 돌반지',meta:'24K · 반지',price:'620,000원',badge:'24K',img:'https://images.pexels.com/photos/691046/pexels-photo-691046.jpeg?auto=compress&cs=tinysrgb&w=800'},{name:'14K 하트 펜던트 목걸이',meta:'14K · 목걸이',price:'238,000원',badge:'',img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80'},{name:'18K 다이아 솔리테어 링',meta:'18K · 반지',price:'1,280,000원',badge:'LUXE',img:'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=80'},{name:'18K 테니스 팔찌',meta:'18K · 팔찌',price:'1,650,000원',badge:'LUXE',img:'https://images.pexels.com/photos/3641059/pexels-photo-3641059.jpeg?auto=compress&cs=tinysrgb&w=800'},{name:'18K 드롭 다이아 이어링',meta:'18K · 귀걸이',price:'890,000원',badge:'LUXE',img:'https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=800&q=80'},{name:'18K 아코야진주 목걸이',meta:'18K · 목걸이',price:'1,120,000원',badge:'LUXE',img:'https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?auto=compress&cs=tinysrgb&w=800'},{name:'18K 와이드 골드 커프',meta:'18K · 팔찌',price:'980,000원',badge:'LUXE',img:'https://images.pexels.com/photos/5442447/pexels-photo-5442447.jpeg?auto=compress&cs=tinysrgb&w=800'},{name:'18K 헤일로 다이아 링',meta:'18K · 반지',price:'1,480,000원',badge:'LUXE',img:'https://images.pexels.com/photos/1232931/pexels-photo-1232931.jpeg?auto=compress&cs=tinysrgb&w=800'}];
+let showAll=false;let goldBase={k24:0,k18:0,k14:0,prev24:0};
+function renderProducts(){const list=showAll?PRODUCTS:PRODUCTS.slice(0,6);document.getElementById('productGrid').innerHTML=list.map(p=>`<article class="product"><div class="product-img"><img src="${p.img}" alt="${p.name}"><button class="heart" type="button">♡</button>${p.badge?`<span class="badge">${p.badge}</span>`:''}</div><div class="pmeta">${p.meta}</div><h3>${p.name}</h3><div class="price">${p.price}</div><button class="buy" type="button" onclick="openConsult('제품 구매 상담','구매 희망 제품: ${p.name}')">구매하기</button></article>`).join('');}
+function showAllProducts(){showAll=true;renderProducts();}
+function scrollToId(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+function openNaverMapApp(e){if(e)e.preventDefault();const appUrl='nmap://place?id=1912557373';const webUrl='https://naver.me/GOhWHrw8';const intentUrl='intent://place?id=1912557373#Intent;scheme=nmap;package=com.nhn.android.nmap;S.browser_fallback_url='+encodeURIComponent(webUrl)+';end';const ua=navigator.userAgent||'';if(/Android/i.test(ua)){location.href=intentUrl;return false;}if(/iPhone|iPad|iPod/i.test(ua)){const started=Date.now();location.href=appUrl;setTimeout(function(){if(Date.now()-started<1600)location.href=webUrl;},900);return false;}window.open(webUrl,'_blank');return false;}
+function showSheet(content){document.getElementById('sheet').innerHTML=content;document.getElementById('modal').classList.add('on');document.body.style.overflow='hidden';}
+function closeModal(){document.getElementById('modal').classList.remove('on');if(!document.getElementById('consultModal').classList.contains('open'))document.body.style.overflow='';}
+function openCalc(){showSheet(`<h3>내 금 예상 매입가</h3><p>실시간 시세 기준 추정 계산기 (1돈 3.75g)</p><select id="purity" style="width:100%;padding:11px;margin:7px 0 13px;border:1px solid #ddd;border-radius:8px"><option value="1">24K</option><option value="0.75">18K</option><option value="0.583">14K</option></select><input id="grams" type="number" placeholder="중량 g" style="width:100%;padding:11px;margin:7px 0 16px;border:1px solid #ddd;border-radius:8px"><button class="full" onclick="calc()">예상 금액 계산</button><div id="result" style="margin-top:15px;text-align:center;font-size:14px"></div>`);}
+function calc(){const g=parseFloat(document.getElementById('grams').value)||0;const p=parseFloat(document.getElementById('purity').value);const base=goldBase.k24||1000000;const r=Math.round((base*p*g)/3.75);document.getElementById('result').innerHTML='예상 매입 기준가 <b>'+r.toLocaleString()+'원</b>';}
+function openConsult(type,message){document.getElementById('consultModal').classList.add('open');document.body.style.overflow='hidden';if(type){document.querySelectorAll('input[name="consultType"]').forEach(r=>{if(r.value===type)r.checked=true;});}if(message)document.getElementById('consultMessage').value=message;}
+function closeConsult(){document.getElementById('consultModal').classList.remove('open');if(!document.getElementById('modal').classList.contains('on'))document.body.style.overflow='';}
+function submitConsult(){const name=(document.getElementById('consultName').value||'').trim();const phone=(document.getElementById('consultPhone').value||'').trim();if(!name||!phone){alert('성함과 연락처를 입력해주세요.');return;}alert('상담 접수 완료');closeConsult();}
+function fmtWon(n){return Math.round(n).toLocaleString();}
+function paintRates(k24,k18,k14,note){document.getElementById('p24').textContent=fmtWon(k24);document.getElementById('p18').textContent=fmtWon(k18);document.getElementById('p14').textContent=fmtWon(k14);goldBase.k24=k24;goldBase.k18=k18;goldBase.k14=k14;document.getElementById('goldUpdated').textContent=note;}
+async function loadGoldRates(){document.getElementById('goldUpdated').textContent='시세 갱신 중…';try{const [goldRes,fxRes]=await Promise.all([fetch('https://api.gold-api.com/price/XAU'),fetch('https://open.er-api.com/v6/latest/USD')]);const gold=await goldRes.json();const fx=await fxRes.json();const usdPerOz=Number(gold.price);const krw=Number(fx.rates&&fx.rates.KRW);if(!usdPerOz||!krw)throw new Error('no');const don24=((usdPerOz*krw)/31.1034768)*3.75;paintRates(don24,don24*0.75,don24*0.583,'실시간 · '+new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'}));}catch(e){const k24=708000;paintRates(k24,k24*0.75,k24*0.583,'참고 시세');}}
+renderProducts();loadGoldRates();setInterval(loadGoldRates,60000);
+</script>
 </body>
 </html>
